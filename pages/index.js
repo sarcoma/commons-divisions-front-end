@@ -27,24 +27,24 @@ function CommonsDivisionList({ commonsDivisionList }) {
                         ))}
                         <p>Total: {commonsDivisionList.meta.total}</p>
                         <p>Page: {commonsDivisionList.meta.page}</p>
-                        <ul>
+                        <nav class="pagination">
                             {
                                 prev
-                                ? <li><Link href={`/?page=${prev}`}
+                                ? <Link href={`/?page=${prev}`}
                                             as={`/page/${prev}`}>
-                                    <a className="button">Prev</a>
-                                </Link></li>
+                                    <a className="pagination--button">Prev</a>
+                                </Link>
                                 : null
                             }
                             {
                                 next
-                                ? <li><Link href={`/?page=${next}`}
+                                ? <Link href={`/?page=${next}`}
                                             as={`/page/${next}`}>
-                                    <a className="button">Next</a>
-                                </Link></li>
+                                    <a className="pagination--button">Next</a>
+                                </Link>
                                 : null
                             }
-                        </ul>
+                        </nav>
                     </div>
                 </div>
             </div>

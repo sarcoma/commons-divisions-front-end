@@ -1,0 +1,19 @@
+{
+  "name": "commons-divisions",
+  "version": "0.1.0",
+  "description": "Frontend for commons divisions API",
+  "main": "pages/index.js",
+  "author": "Sarcoma <sean@orderandchaoscreative.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "isomorphic-unfetch": "^3.0.0",
+    "next": "^8.1.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  }
+}

@@ -17,7 +17,7 @@ function CommonsDivisionList({ commonsDivisionList }) {
                                 <p>{commonsDivision.date}</p>
                                 <p>
                                     <Link href={`/commons-division/?id=${commonsDivision.id}`}>
-                                        <a>View</a>
+                                        <a className="button">View</a>
                                     </Link>
                                 </p>
                                 <p>Margin: {commonsDivision.margin}</p>
@@ -30,14 +30,14 @@ function CommonsDivisionList({ commonsDivisionList }) {
                             {
                                 prev
                                 ? <li><Link href={`/?page=${prev}`}>
-                                    <a>Prev</a>
+                                    <a className="button">Prev</a>
                                 </Link></li>
                                 : null
                             }
                             {
                                 next
                                 ? <li><Link href={`/?page=${next}`}>
-                                    <a>Next</a>
+                                    <a className="button">Next</a>
                                 </Link></li>
                                 : null
                             }

@@ -10,6 +10,12 @@ app
     .then(() => {
         const server = express()
 
+        server.get('/:page', (req, res) => {
+          const actualPage = '/'
+          const queryParams = { page: req.params.id }
+          app.render(req, res, actualPage, queryParams)
+        })
+
         server.get('/commons-division/:id', (req, res) => {
           const actualPage = '/commons-division'
           const queryParams = { id: req.params.id }

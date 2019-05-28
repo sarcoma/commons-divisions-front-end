@@ -10,7 +10,8 @@ function CommonsDivision({ commonsDivision }) {
                                     <h4>{mp.name}</h4>
                                     <p>{mp.party}<br/>{mp.constituency}</p>
                                     <p>
-                                    <Link href={`/member-of-parliament/?id=${mp.id}`}>
+                                    <Link href={`/member-of-parliament/?id=${mp.id}`}
+                                          as={`/member-of-parliament/${mp.id}`}>
                                         <a className="button">View</a>
                                     </Link>
                                     </p>

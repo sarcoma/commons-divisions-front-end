@@ -6,14 +6,15 @@
   "author": "Sarcoma <sean@orderandchaoscreative.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "next",
+    "dev": "node server.js",
     "build": "next build",
-    "start": "next start"
+    "start": "NODE_ENV=production node server.js"
   },
   "dependencies": {
-    "@orderandchaos/styles": "^2.0.2",
+    "@orderandchaos/styles": "^2.0.5",
     "@zeit/next-css": "^1.0.1",
     "@zeit/next-sass": "^1.0.1",
+    "express": "^4.17.1",
     "isomorphic-unfetch": "^3.0.0",
     "next": "^8.1.0",
     "node-sass": "^4.12.0",

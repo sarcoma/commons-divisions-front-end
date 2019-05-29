@@ -37,6 +37,31 @@ function CommonsDivision({ commonsDivision }) {
                                 : 'Votes tied'
                         }</p>
                         <p>Margin: {commonsDivision.margin}</p>
+                        <div>
+                            <div className="row">
+                                <div className="column col-1">Ayes</div>
+                                <div className="column col-10">
+                                    <div style={{
+                                        height: "80px",
+                                        width: ((ayeVotes.length / commonsDivision.votes.length) * 100) + "%"
+                                    }} className="bc--dark-grey"></div>
+                                </div>
+                            </div>
+                            <div className="row">
+                                <div className="column col-1">Noes</div>
+                                <div className="column col-10"><div style={{
+                                        height: "80px",
+                                        width: ((noVotes.length / commonsDivision.votes.length) * 100) + "%"
+                                    }} className="bc--darker-grey"></div></div>
+                            </div>
+                            <div className="row">
+                                <div className="column col-1">No Vote</div>
+                                <div className="column col-10"><div style={{
+                                        height: "80px",
+                                        width: ((didNotVote.length / commonsDivision.votes.length) * 100) + "%"
+                                    }} className="bc--grey"></div></div>
+                            </div>
+                        </div>
                         <h3>Votes</h3>
                         <div className="row">
                             <div className="column col-4">

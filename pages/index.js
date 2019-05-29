@@ -54,7 +54,7 @@ function CommonsDivisionList({ commonsDivisionList }) {
 
 CommonsDivisionList.getInitialProps = async ({ req, query }) => {
     const page = query.page || 1
-    const res = await fetch('https://commonsdivisions.orderandchaoscreative.com/commons-division/page/' + page);
+    const res = await fetch('https://commonsdivisionsapi.orderandchaoscreative.com/commons-division/page/' + page);
     const json = await res.json();
     return { commonsDivisionList: json };
 };

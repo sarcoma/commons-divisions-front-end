@@ -42,7 +42,7 @@ function CommonsDivision({ commonsDivision }) {
                                 <div className="column col-1">Ayes</div>
                                 <div className="column col-10">
                                     <div style={{
-                                        height: "80px",
+                                        height: "60px",
                                         width: ((ayeVotes.length / commonsDivision.votes.length) * 100) + "%"
                                     }} className="bc--dark-grey"></div>
                                 </div>
@@ -50,14 +50,14 @@ function CommonsDivision({ commonsDivision }) {
                             <div className="row">
                                 <div className="column col-1">Noes</div>
                                 <div className="column col-10"><div style={{
-                                        height: "80px",
+                                        height: "60px",
                                         width: ((noVotes.length / commonsDivision.votes.length) * 100) + "%"
                                     }} className="bc--darker-grey"></div></div>
                             </div>
                             <div className="row">
                                 <div className="column col-1">No Vote</div>
                                 <div className="column col-10"><div style={{
-                                        height: "80px",
+                                        height: "60px",
                                         width: ((didNotVote.length / commonsDivision.votes.length) * 100) + "%"
                                     }} className="bc--grey"></div></div>
                             </div>
@@ -92,7 +92,7 @@ function CommonsDivision({ commonsDivision }) {
 
 CommonsDivision.getInitialProps = async ({ req, query }) => {
     const id = query.id || 1;
-    const res = await fetch('https://commonsdivisions.orderandchaoscreative.com/commons-division/' + id);
+    const res = await fetch('https://commonsdivisionsapi.orderandchaoscreative.com/commons-division/' + id);
     const json = await res.json();
     return { commonsDivision: json };
 };

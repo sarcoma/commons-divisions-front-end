@@ -20,7 +20,7 @@ function MemberOfParliament({ memberOfParliament }) {
 
 MemberOfParliament.getInitialProps = async ({ req, query }) => {
     const id = query.id || 1;
-    const res = await fetch('https://commonsdivisions.orderandchaoscreative.com/member-of-parliament/' + id);
+    const res = await fetch('https://commonsdivisionsapi.orderandchaoscreative.com/member-of-parliament/' + id);
     const json = await res.json();
     return { memberOfParliament: json };
 };

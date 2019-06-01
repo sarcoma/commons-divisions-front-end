@@ -1,19 +1,27 @@
 import 'isomorphic-unfetch';
 import Link from 'next/link';
 import Page from '../layout/main.js'
+import {
+    Column,
+    Container,
+    Row,
+    Text,
+    Title,
+} from '@orderandchaos/react-components';
+import React from 'react';
 
 function MemberOfParliament({ memberOfParliament }) {
 
     return  (
         <Page>
-            <div className="container">
-                <div className="row">
-                    <div className="column col-12">
-                        <h2>{memberOfParliament.name}</h2>
-                        <p>{memberOfParliament.party}<br/>{memberOfParliament.constituency}</p>
-                    </div>
-                </div>
-            </div>
+            <Container>
+                <Row>
+                    <Column>
+                        <Title tag="h2">{memberOfParliament.name}</Title>
+                        <Text>{memberOfParliament.party}<br/>{memberOfParliament.constituency}</Text>
+                    </Column>
+                </Row>
+            </Container>
         </Page>
     );
 }

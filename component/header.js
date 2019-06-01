@@ -1,10 +1,15 @@
+import { Column, Container, Row, Title } from '@orderandchaos/react-components';
+import React from 'react';
+
 export default () => (
-    <div className="container">
-        <div className="row">
-            <div className="column col-12">
-                <h1 className="border--bottom">Commons Divisions</h1>
-            </div>
-        </div>
-    </div>
+    <Container>
+        <Row>
+            <Column>
+                <Title tag="h1" className="border--bottom">
+                    Commons Divisions
+                </Title>
+            </Column>
+        </Row>
+    </Container>
 );
 

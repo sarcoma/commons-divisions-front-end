@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import styles from '@orderandchaos/styles/dist/styles.css'
+import styles from '../sass/styles.scss'
 
 export default () => (
       <div>

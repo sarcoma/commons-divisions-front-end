@@ -1,6 +1,5 @@
 import 'isomorphic-unfetch';
-import Link from 'next/link';
-import Page from '../layout/main.js'
+import Page from '../layout/main.js';
 import {
     Column,
     Container,
@@ -9,16 +8,18 @@ import {
     Title,
 } from '@orderandchaos/react-components';
 import React from 'react';
+import { baseUrl } from '../constants';
 
-function MemberOfParliament({ memberOfParliament }) {
+function MemberOfParliament({memberOfParliament}) {
 
-    return  (
+    return (
         <Page>
             <Container>
                 <Row>
                     <Column>
                         <Title tag="h2">{memberOfParliament.name}</Title>
-                        <Text>{memberOfParliament.party}<br/>{memberOfParliament.constituency}</Text>
+                        <Text>{memberOfParliament.party}<br/>{memberOfParliament.constituency}
+                        </Text>
                     </Column>
                 </Row>
             </Container>
@@ -26,11 +27,11 @@ function MemberOfParliament({ memberOfParliament }) {
     );
 }
 
-MemberOfParliament.getInitialProps = async ({ req, query }) => {
+MemberOfParliament.getInitialProps = async({req, query}) => {
     const id = query.id || 1;
-    const res = await fetch('https://commonsdivisionsapi.orderandchaoscreative.com/member-of-parliament/' + id);
+    const res = await fetch(baseUrl + '/member-of-parliament/' + id);
     const json = await res.json();
-    return { memberOfParliament: json };
+    return {memberOfParliament: json};
 };
 
 export default MemberOfParliament;

@@ -9,6 +9,7 @@ import {
     Title,
 } from '@orderandchaos/react-components';
 import React from 'react';
+import { baseUrl } from '../constants';
 
 function CommonsDivision({commonsDivision}) {
 
@@ -126,9 +127,7 @@ function CommonsDivision({commonsDivision}) {
 
 CommonsDivision.getInitialProps = async({req, query}) => {
     const id = query.id || 1;
-    const res = await fetch(
-        'https://commonsdivisionsapi.orderandchaoscreative.com/commons-division/' +
-        id);
+    const res = await fetch(baseUrl + '/commons-division/' + id);
     const json = await res.json();
     return {commonsDivision: json};
 };

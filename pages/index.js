@@ -3,29 +3,40 @@ import Link from 'next/link';
 import Page from '../layout/main.js';
 import React, { Fragment } from 'react';
 import {
+    Button,
     Column,
     Container,
+    Input,
     Row,
     Text,
     Title,
 } from '@orderandchaos/react-components';
 import { baseUrl } from '../constants';
-import Router, { withRouter } from 'next/router'
+import Router, { withRouter } from 'next/router';
 
 class CommonsDivisionList extends React.Component {
 
+    state = {search: ''};
+
     static async getInitialProps({query}) {
         const page = query.page || 1;
-        const res = await fetch(baseUrl + '/commons-division/page/' + page);
+        const search = query.search || '';
+        let url = baseUrl + '/commons-division/page/' + page;
+        if (search !== '') {
+            url += '?filter=title:' + search
+        }
+        const res = await fetch(url);
         const json = await res.json();
 
         return {json};
     };
 
-    handler = () => {
+    handler = (event) => {
+        const {query} = this.props.router;
+        console.log(event);
         Router.push({
             pathname: '/',
-            query: { page: this.state.meta.page, search: this.state.search }
+            query: {page: query.page, search: this.state.search},
         });
     };
 
@@ -38,6 +49,15 @@ class CommonsDivisionList extends React.Component {
         return (
             <Page>
                 <Container>
+                    <Row>
+                        <Column>
+                            <Input
+                                onChange={this.handleInputChange}
+                                value={this.state.search}
+                            />
+                            <Button onClick={this.handler}>Search</Button>
+                        </Column>
+                    </Row>
                     <Row>
                         <Column>
                             {data.map(commonsDivision => (
@@ -85,6 +105,11 @@ class CommonsDivisionList extends React.Component {
                 </Container>
             </Page>
         );
+    }
+
+    handleInputChange = (event) => {
+        console.log(event);
+        this.setState({search: event.target.value});
     }
 }
 

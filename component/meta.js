@@ -1,5 +1,9 @@
 import Head from 'next/head'
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fas } from '@fortawesome/pro-solid-svg-icons';
 import styles from '../sass/styles.scss'
+
+library.add(fas);
 
 export default () => (
       <div>

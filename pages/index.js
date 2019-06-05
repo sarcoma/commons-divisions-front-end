@@ -3,16 +3,15 @@ import Link from 'next/link';
 import Page from '../layout/main.js';
 import React, { Fragment } from 'react';
 import {
-    Button,
     Column,
     Container,
-    Input,
     Row,
     Text,
     Title,
 } from '@orderandchaos/react-components';
 import { baseUrl } from '../constants';
 import Router, { withRouter } from 'next/router';
+import { SearchBar } from '../component/search-bar';
 
 class CommonsDivisionList extends React.Component {
 
@@ -50,12 +49,12 @@ class CommonsDivisionList extends React.Component {
             <Page>
                 <Container>
                     <Row>
-                        <Column>
-                            <Input
+                        <Column span={['4', 'sml-6', 'xsml-12']}>
+                            <SearchBar
                                 onChange={this.handleInputChange}
                                 value={this.state.search}
+                                onClick={this.handler}
                             />
-                            <Button onClick={this.handler}>Search</Button>
                         </Column>
                     </Row>
                     <Row>

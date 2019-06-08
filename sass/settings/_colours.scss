@@ -1,0 +1,167 @@
+$color--black: #33333a;
+$color--darkest-grey: #565662;
+$color--darker-grey: #686876;
+$color--dark-grey: #7d7d8e;
+$color--grey: #9292a8;
+$color--light-grey: #b1aaa2;
+$color--lighter-grey: #cfc7bd;
+$color--lightest-grey: #e2d9ce;
+$color--white: #f6ece0;
+
+/**
+ * The main brand color variabled.
+ *
+ * @nuclide Primary-Color
+ * @section Colors > Brand
+ */
+$color--primary: $color--black;
+
+/**
+ * The main brand color variable when hovered.
+ *
+ * @nuclide Primary-Color-Hover
+ * @section Colors > Brand
+ */
+$color--primary--hover: $color--grey;
+
+/**
+ * An alternative brand color variable.
+ *
+ * @nuclide Secondary-Color
+ * @section Colors > Brand
+ */
+$color--secondary: $color--dark-grey;
+
+/**
+ * An alternative brand color variable when hovered.
+ *
+ * @nuclide Secondary-Color-Hover
+ * @section Colors > Brand
+ */
+$color--secondary--hover: $color--light-grey;
+
+/**
+ * An array containing all the defined colors
+ *
+ * @nuclide Color-List
+ * @section Colors > List
+ */
+$colors: "black" $color--black,
+"darkest-grey" $color--darkest-grey,
+"darker-grey" $color--darker-grey,
+"dark-grey" $color--dark-grey,
+"grey" $color--grey,
+"light-grey" $color--light-grey,
+"lighter-grey" $color--lighter-grey,
+"lightest-grey" $color--lightest-grey,
+"white" $color--white,
+"green" $color--green,
+"red" $color--red,
+"lighter-green" $color--lighter-green,
+"lighter-red" $color--lighter-red,
+"primary" $color--primary,
+"secondary" $color--secondary,
+"error" $color--error,
+"valid" $color--valid "transparent" transparent;
+
+/**
+ * The default body background colour
+ *
+ * @nuclide Body-Background-Color
+ * @section General > Background Colors
+ */
+$body--bk-color: $color--white;
+
+/**
+ * The default page wrapper background color
+ *
+ * @nuclide Page-Wrapper-Background-Color
+ * @section General > Background Colors
+ */
+$wrapper--bk-color: $color--white;
+
+/**
+ * Header color
+ *
+ * @nuclide Header-Color
+ * @section General > Colors
+ */
+$header--color: $color--black;
+/**
+ * Text color
+ *
+ * @nuclide Text-Color
+ * @section General > Colors
+ */
+$text--color: $color--darker-grey;
+/**
+ * Text color light
+ *
+ * @nuclide Text-Color-Light
+ * @section General > Colors
+ */
+$text--color-light: $color--light-grey;
+
+/**
+ * The default link color
+ *
+ * @nuclide Link-Color
+ * @section General > Links
+ */
+$link--color: $color--dark-grey;
+
+/**
+ * The default link color when hovered
+ *
+ * @nuclide Link-Color-Hover
+ * @section General > Links
+ */
+$link--color--hover: $color--darkest-grey;
+
+/**
+ * Button color
+ *
+ * @nuclide Button-Color
+ * @section Buttons > Default
+ */
+$button--color: $color--white;
+
+/**
+ * Button color
+ *
+ * @nuclide Button-Color
+ * @section Buttons > Default
+ */
+$button--color--hover: $color--white;
+
+/**
+ * Button background color
+ *
+ * @nuclide Button-Background-Colour
+ * @section Buttons > Default
+ */
+$button--bk-color: $color--primary;
+/**
+ * Button background color when hovered
+ *
+ * @nuclide Button-Background-Colour-Hovered
+ * @section Buttons > Default
+ */
+$button--bk-color--hover: $color--primary--hover;
+
+
+/**
+ * Button color disabled
+ *
+ * @nuclide Button-Color-Disabled
+ * @section Buttons > Disabled
+ */
+$button--color--disabled: $color--lighter-grey;
+
+/**
+ * Button background color disabled
+ *
+ * @nuclide Button-Background-Color-Disabled
+ * @section Buttons > Disabled
+ */
+$button--bk-color-disabled: $color--light-grey;

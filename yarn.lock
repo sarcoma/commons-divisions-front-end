@@ -751,10 +751,10 @@
   dependencies:
     modularscale-sass "^3.0.8"
 
-"@orderandchaos/styles@^2.2.5":
-  version "2.2.5"
-  resolved "https://registry.yarnpkg.com/@orderandchaos/styles/-/styles-2.2.5.tgz#6147bf00d6c059c98b266c5e9bda456444c5a019"
-  integrity sha512-kUvNGMIWLp1c3+D4LzD4O1+xt67l5TFGDLjb9llSd0k5KIq+LqaPme/er02WozIyFtunrRI2oKZFkWoqnIRA4A==
+"@orderandchaos/styles@^2.2.6":
+  version "2.2.6"
+  resolved "https://registry.yarnpkg.com/@orderandchaos/styles/-/styles-2.2.6.tgz#46e92cbf00641e89a18ab4b7c984fac28dfa8676"
+  integrity sha512-DS2SgO7nEe96qi/CRBZRfjVHjHtBylj2RQoOws4EljnvpN/FmphYEZpqCkEG5YoDhIbG3TbxI5SHi3lRllLDtw==
   dependencies:
     modularscale-sass "^3.0.8"
 

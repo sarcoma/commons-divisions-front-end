@@ -5,24 +5,22 @@ import React, { Fragment } from 'react';
 import {
     Column,
     Container,
+    Pretitle,
     Row,
     Text,
     Title,
 } from '@orderandchaos/react-components';
 import { baseUrl } from '../constants';
-import Router, { withRouter } from 'next/router';
-import { SearchBar } from '../component/search-bar';
+import { withRouter } from 'next/router';
 
 class CommonsDivisionList extends React.Component {
-
-    state = {search: ''};
 
     static async getInitialProps({query}) {
         const page = query.page || 1;
         const search = query.search || '';
         let url = baseUrl + '/commons-division/page/' + page;
-        if (search !== '') {
-            url += '?filter=title:' + search
+        if(search !== '') {
+            url += '?filter=title:' + search;
         }
         const res = await fetch(url);
         const json = await res.json();
@@ -30,38 +28,82 @@ class CommonsDivisionList extends React.Component {
         return {json};
     };
 
-    handler = (event) => {
-        const {query} = this.props.router;
-        console.log(event);
-        Router.push({
-            pathname: '/',
-            query: {page: query.page, search: this.state.search},
-        });
+    prevLink = ({page, total, limit}, search) => {
+        const hasPrev = page > 1;
+        if(!hasPrev) {
+            return null;
+        }
+        let params = `/?page=${page - 1}`;
+        let pretty = '/page/' - 1;
+        if(search) {
+            params = `${params}&search=${search}`;
+            pretty = `${pretty}/search/${search}`;
+        }
+
+        return (
+            <Link
+                href={params} as={pretty}
+            >
+                <a className="pagination--button">Prev</a>
+            </Link>
+        );
+    };
+    // Todo: Finish these links
+    nextLink = ({page, total, limit}, search) => {
+        const hasNext = page < total / limit;
+        if(!hasNext) {
+            return null;
+        }
+        let params = `/?page=${page + 1}`;
+        let pretty = '/page/' + 1;
+        if(search) {
+            params = `${params}&search=${search}`;
+            pretty = `${pretty}/search/${search}`;
+        }
+
+        return (
+            <Link
+                href={params} as={pretty}
+            >
+                <a className="pagination--button">Next</a>
+            </Link>
+        );
     };
 
     render() {
+        const {search} = this.props.router.query;
         const {data, meta} = this.props.json;
-        const {page, total, limit} = meta;
-        const next = page < total / limit ? page + 1 : false;
-        const prev = page > 0 ? page + 1 : false;
-
         return (
             <Page>
                 <Container>
                     <Row>
-                        <Column span={['4', 'sml-6', 'xsml-12']}>
-                            <SearchBar
-                                onChange={this.handleInputChange}
-                                value={this.state.search}
-                                onClick={this.handler}
-                            />
+                        <Column>
+                            <header>
+                                <Pretitle>Found {meta.total} results</Pretitle>
+                                <Title tag={'h2'}>
+                                    Searched for: {search || 'All'}
+                                </Title>
+                                {search
+                                    ? <Link
+                                        href={`/`} as={`/`}
+                                    >Clear</Link>
+                                    : null}
+                            </header>
+                            <hr/>
                         </Column>
                     </Row>
                     <Row>
                         <Column>
                             {data.map(commonsDivision => (
                                 <Fragment>
-                                    <Title tag="h2">{commonsDivision.title}</Title>
+                                    <Link
+                                        href={`/commons-division/?id=${commonsDivision.id}`}
+                                        as={`/commons-division/${commonsDivision.id}`}
+                                    >
+                                        <a>
+                                            <Title tag="h3">{commonsDivision.title}</Title>
+                                        </a>
+                                    </Link>
                                     <Text>{commonsDivision.date}</Text>
                                     <Text>Margin: {commonsDivision.margin}</Text>
                                     <Text>
@@ -78,26 +120,8 @@ class CommonsDivisionList extends React.Component {
                             <Text>Total: {meta.total}</Text>
                             <Text>Page: {meta.page}</Text>
                             <nav className="pagination">
-                                {
-                                    prev
-                                        ? <Link
-                                            href={`/?page=${prev}`}
-                                            as={`/page/${prev}`}
-                                        >
-                                            <a className="pagination--button">Prev</a>
-                                        </Link>
-                                        : null
-                                }
-                                {
-                                    next
-                                        ? <Link
-                                            href={`/?page=${next}`}
-                                            as={`/page/${next}`}
-                                        >
-                                            <a className="pagination--button">Next</a>
-                                        </Link>
-                                        : null
-                                }
+                                {this.prevLink(meta, search)}
+                                {this.nextLink(meta, search)}
                             </nav>
                         </Column>
                     </Row>
@@ -105,14 +129,8 @@ class CommonsDivisionList extends React.Component {
             </Page>
         );
     }
-
-    handleInputChange = (event) => {
-        console.log(event);
-        this.setState({search: event.target.value});
-    }
 }
 
 CommonsDivisionList = withRouter(CommonsDivisionList);
 
 export default CommonsDivisionList;
-

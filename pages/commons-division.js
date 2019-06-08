@@ -41,14 +41,17 @@ function CommonsDivision({commonsDivision}) {
                     <Column>
                         <Title tag="h2">{commonsDivision.title}</Title>
                         <Text>{commonsDivision.date}</Text>
-                        <Text>{
+                        <Text className={'text--semi-bold'}>{
                             ayeVotes.length > noVotes.length
                                 ? 'The ayes have it'
                                 : noVotes.length > ayeVotes.length
                                 ? 'The noes have it'
                                 : 'Votes tied'
-                        }</Text>
-                        <Text>Margin: {commonsDivision.margin}</Text>
+                        }.{' '}
+                            <span className={'text--regular'}>
+                               Margin {commonsDivision.margin} votes
+                            </span>
+                        </Text>
                         <Row>
                             <Column span={['1']}>Ayes</Column>
                             <Column span={['11']}>

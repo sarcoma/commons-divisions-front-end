@@ -1,12 +1,12 @@
-$color--black: #33333a;
-$color--darkest-grey: #565662;
-$color--darker-grey: #686876;
-$color--dark-grey: #7d7d8e;
-$color--grey: #9292a8;
-$color--light-grey: #b1aaa2;
-$color--lighter-grey: #cfc7bd;
-$color--lightest-grey: #e2d9ce;
-$color--white: #f6ece0;
+$color--black: #1e2549;
+$color--darkest-grey: #343c5e;
+$color--darker-grey: #535772;
+$color--dark-grey: #63698a;
+$color--grey: #87879a;
+$color--light-grey: #b1acab;
+$color--lighter-grey: #cfcbce;
+$color--lightest-grey: #e2e0e0;
+$color--white: #f6f1ec;
 
 /**
  * The main brand color variabled.
@@ -22,7 +22,7 @@ $color--primary: $color--black;
  * @nuclide Primary-Color-Hover
  * @section Colors > Brand
  */
-$color--primary--hover: $color--grey;
+$color--primary--hover: $color--darker-grey;
 
 /**
  * An alternative brand color variable.

@@ -2,6 +2,7 @@ import { Column, Container, Row, Title } from '@orderandchaos/react-components';
 import React, { Component } from 'react';
 import { SearchBar } from './search-bar';
 import Router, { withRouter } from 'next/router';
+import Link from 'next/link';
 
 class Header extends Component {
     state = {search: ''};
@@ -24,7 +25,14 @@ class Header extends Component {
             <Container>
                 <Row>
                     <Column span={['8', 'sml-7', 'xsml-12']}>
-                        <Title tag="h1">Commons Divisions</Title>
+                        <Link
+                            href={`/`}
+                            as={`/`}
+                        >
+                            <a>
+                                <Title tag="h1">Commons Divisions</Title>
+                            </a>
+                        </Link>
                     </Column>
                     <Column span={['4', 'sml-5', 'xsml-12']}>
                         <SearchBar

@@ -104,7 +104,7 @@ class CommonsDivisionList extends React.Component {
                                             <Title tag="h3">{commonsDivision.title}</Title>
                                         </a>
                                     </Link>
-                                    <Text>{commonsDivision.date}</Text>
+                                    <Text>{commonsDivision.date.replace(/\d{2}:\d{2}:\d{2} GMT/i, '')}</Text>
                                     <Text>Margin: {commonsDivision.margin}</Text>
                                     <Text>
                                         <Link

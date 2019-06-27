@@ -1,0 +1,53 @@
+.vote-bar {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-shrink: 1;
+}
+
+.dup {
+  background-color: #9e3e3a;
+}
+
+.green-party {
+  background-color: #489941;
+}
+
+.labour {
+  background-color: #a3181a;
+}
+
+.tory {
+  background-color: #355875;
+}
+
+.lib-dem {
+  background-color: #c27d2c;
+}
+
+.plaid-cymru {
+  background-color: #328452;
+}
+
+.snp {
+  background-color: #cbb74c;
+}
+
+.change-uk, .independent-group {
+  background-color: #2a292d;
+}
+
+.sinn-fein {
+  background-color: #476153;
+}
+
+.brexit-party {
+  background-color: #40a0b2;
+}
+
+.ukip {
+  background-color: #662b7d;
+}
+
+.independent {
+  background-color: #717175;
+}

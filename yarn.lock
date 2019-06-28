@@ -736,10 +736,10 @@
     humps "^2.0.1"
     prop-types "^15.5.10"
 
-"@orderandchaos/react-components@^0.10.2":
-  version "0.10.2"
-  resolved "https://registry.yarnpkg.com/@orderandchaos/react-components/-/react-components-0.10.2.tgz#84a624a0e4ae2ca9e48fe4ce08ee91ec83b5154f"
-  integrity sha512-FnCp3H/1xGWz+YcB1IiF+1zfq5sL/6UCGWJIyrI2ycBGULLbLyRYqMfW5U6zSHcXl/PatFA6rN+aKzYYf67bvA==
+"@orderandchaos/react-components@^0.10.3":
+  version "0.10.3"
+  resolved "https://registry.yarnpkg.com/@orderandchaos/react-components/-/react-components-0.10.3.tgz#f5fa84aeaef2a2e17f2793fac1dc48e2df0414f2"
+  integrity sha512-S8isoCLh56H5OVg6/5dMnn0x7aDc/m0yYS6PQcKHwG25JUKAPigDiOvPcOjkxVn/iP6U+ryACaMw+bGEI9dHHg==
   dependencies:
     "@orderandchaos/styles" "^2.1.2"
     corejs "^1.0.0"
@@ -751,10 +751,10 @@
   dependencies:
     modularscale-sass "^3.0.8"
 
-"@orderandchaos/styles@^2.2.7":
-  version "2.2.7"
-  resolved "https://registry.yarnpkg.com/@orderandchaos/styles/-/styles-2.2.7.tgz#9c3b23e965cbba4bf475564ecd96da2e4d47e3f0"
-  integrity sha512-BByoZwHopMVaHXlU6B/5C5mJSV+b+bAS5o+3KdkoK8MP23g6aUWXZEcAIuBsXhltTEDcnuJg/FqdC/VFToC5kg==
+"@orderandchaos/styles@^2.2.9":
+  version "2.2.9"
+  resolved "https://registry.yarnpkg.com/@orderandchaos/styles/-/styles-2.2.9.tgz#277ea145a5f93bb4b7680a84e988c6f783e100ab"
+  integrity sha512-WE3d5sGkO3R7r/uwGwHBhW9S4iy2FW5veq4UQ7PDfh47rR3IGfFWpP51vJ5ph85IpZLzxRhkJlNhoyXcf5zxRA==
   dependencies:
     modularscale-sass "^3.0.8"
 

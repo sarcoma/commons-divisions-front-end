@@ -18,28 +18,7 @@ import getPartyColour from '../utility/party-colour';
 class CommonsDivision extends Component {
 
     filterByVote = (vote) => this.props.commonsDivision.votes
-        .filter(cd => cd.vote === vote)
-        .map(cd => {
-            const mp = cd.member_of_parliament;
-            return <div className="border--bottom">
-                <Block>
-                    <div>
-                        <Title tag="h3">{mp.name}</Title>
-                        <Text className={'margin-left--auto margin-bottom--none '}>{mp.party}<br/>
-                            {mp.constituency}
-                        </Text>
-                    </div>
-                    <Text className="margin-bottom--none margin-left--auto margin-top--auto">
-                        <Link
-                            href={`/member-of-parliament/?id=${mp.id}`}
-                            as={`/member-of-parliament/${mp.id}`}
-                        >
-                            <a className="button">View</a>
-                        </Link>
-                    </Text>
-                </Block>
-            </div>;
-        });
+        .filter(cd => cd.vote === vote);
 
     filterVoteData = (vote) =>
         this.props.commonsDivision.votes.filter(
@@ -121,7 +100,7 @@ class CommonsDivision extends Component {
                             <Row>
                                 <Column span={['1']}>
                                     <Text>
-                                        <strong>noes</strong><br/>
+                                        <strong>Noes</strong><br/>
                                         {this.noVotes.length}
                                     </Text>
                                 </Column>
@@ -144,9 +123,6 @@ class CommonsDivision extends Component {
                                     </div>
                                 </Column>
                             </Row>
-                            <Title
-                                tag="h3" className="border--top"
-                            >Votes</Title>
                             <MpVoteList votes={this.props.commonsDivision.votes} />
                         </Column>
                     </Row>

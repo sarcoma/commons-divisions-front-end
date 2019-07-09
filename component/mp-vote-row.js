@@ -1,6 +1,7 @@
 import React from 'react';
 import { Column, Row, Text } from '@orderandchaos/react-components';
 import getPartyColour from '../utility/party-colour';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const MpVoteRow = ({vote, member_of_parliament}) =>
     <Row>
@@ -16,24 +17,39 @@ const MpVoteRow = ({vote, member_of_parliament}) =>
                 {member_of_parliament.party.toUpperCase()}
             </Text>
         </Column>
-        <Column span={['3']}>
+        <Column span={['2']}>
             <Text className="margin-bottom--none">
                 <strong>{member_of_parliament.name}</strong><br/>{member_of_parliament.constituency}
             </Text>
         </Column>
-        <Column span={['1']}>
+        <Column span={['2']}>
             <Text className="margin-bottom--none">
-                {vote === 'aye' ? 'x' : null}
+                {vote === 'aye' ? <FontAwesomeIcon
+                    className={'tick'}
+                    icon={[
+                        'fas',
+                        'check']}
+                /> : ''}
             </Text>
         </Column>
-        <Column span={['1']}>
+        <Column span={['2']}>
             <Text className="margin-bottom--none">
-                {vote === 'no' ? 'x' : null}
+                {vote === 'no' ? <FontAwesomeIcon
+                    className={'tick'}
+                    icon={[
+                        'fas',
+                        'check']}
+                /> : ''}
             </Text>
         </Column>
-        <Column span={['1']}>
+        <Column span={['2']}>
             <Text className="margin-bottom--none">
-                {vote === 'no_vote' ? 'x' : ''}
+                {vote === 'no_vote' ? <FontAwesomeIcon
+                    className={'tick'}
+                    icon={[
+                        'fas',
+                        'check']}
+                /> : ''}
             </Text>
         </Column>
     </Row>

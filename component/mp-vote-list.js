@@ -101,8 +101,8 @@ export default class MpVoteList extends Component {
                     </Column>
                 </Row>
                 {this.voteList()
-                    .map(v => <MpVoteRow
-                        key={v.member_of_parliament.constituency}
+                    .map((v, i) => <MpVoteRow
+                        key={i}
                         vote={v.vote}
                         member_of_parliament={v.member_of_parliament}
                     />)}

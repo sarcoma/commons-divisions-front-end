@@ -1,8 +1,6 @@
 import 'isomorphic-unfetch';
-import Link from 'next/link';
 import Page from '../layout/main.js';
 import {
-    Block,
     Column,
     Container,
     Row,
@@ -14,6 +12,7 @@ import { baseUrl } from '../constants';
 import * as PropTypes from 'prop-types';
 import MpVoteList from '../component/mp-vote-list';
 import getPartyColour from '../utility/party-colour';
+import VoteBar from '../component/vote-bar';
 
 class CommonsDivision extends Component {
 
@@ -33,32 +32,6 @@ class CommonsDivision extends Component {
     ayeVotesData = this.filterVoteData('aye');
     noVotesData = this.filterVoteData('no');
     didNotVoteData = this.filterVoteData('no_vote');
-
-    voteBar = votes => {
-        const splitVotes = votes.reduce((acc, vote) => {
-            if(!acc.hasOwnProperty(vote.party)) {
-                acc[vote.party] = {votes: 1};
-            } else {
-                acc[vote.party].votes++;
-            }
-            return acc;
-        }, {});
-
-        const sections = [];
-        for(const party in splitVotes) {
-            if(splitVotes.hasOwnProperty(party)) {
-                sections.push(this.voteSection(party, splitVotes[party].votes));
-            }
-        }
-        return sections;
-    };
-
-    voteSection = (party, votes) => <div
-        title={`${party}: ${votes} votes`} style={{
-        height: '60px',
-        width: ((votes / this.props.commonsDivision.votes.length) * 100) + '%',
-    }} className={[getPartyColour(party), 'vote-section'].join(' ')}
-    />;
 
     render() {
         let {commonsDivision} = this.props;
@@ -84,46 +57,51 @@ class CommonsDivision extends Component {
                                Margin {commonsDivision.margin} votes.
                             </span>
                             </Title>
-                            <Row>
-                                <Column span={['1']}>
-                                    <Text>
-                                        <strong>Ayes</strong><br/>
-                                        {this.ayeVotes.length}
-                                    </Text>
-                                </Column>
-                                <Column span={['11']}>
-                                    <div className={'vote-bar'}>
-                                        {this.voteBar(this.ayeVotesData)}
-                                    </div>
-                                </Column>
-                            </Row>
-                            <Row>
-                                <Column span={['1']}>
-                                    <Text>
-                                        <strong>Noes</strong><br/>
-                                        {this.noVotes.length}
-                                    </Text>
-                                </Column>
-                                <Column span={['11']}>
-                                    <div className={'vote-bar'}>
-                                        {this.voteBar(this.noVotesData)}
-                                    </div>
-                                </Column>
-                            </Row>
-                            <Row>
-                                <Column span={['1']}>
-                                    <Text>
-                                        <strong>Did not vote</strong><br/>
-                                        {this.didNotVote.length}
-                                    </Text>
-                                </Column>
-                                <Column span={['11']}>
-                                    <div className={'vote-bar'}>
-                                        {this.voteBar(this.didNotVoteData)}
-                                    </div>
-                                </Column>
-                            </Row>
-                            <MpVoteList votes={this.props.commonsDivision.votes} />
+                            <div className={'bar-chart-grid'}>
+                                <div className={'bar-chart-line'}
+                                     style={{left: ((100/6) - 8.3333).toFixed(4) + '%'}}
+                                />
+                                <div className={'bar-chart-line'}
+                                     style={{left: (((100/6) * 2)  - 8.3333).toFixed(4) + '%'}}
+                                />
+                                <div className={'bar-chart-line'}
+                                     style={{left: (((100/6) * 3)  - 8.3333).toFixed(4) + '%'}}
+                                />
+                                <div className={'bar-chart-line'}
+                                     style={{left: (((100/6) * 4)  - 8.3333).toFixed(4) + '%'}}
+                                />
+                                <div className={'bar-chart-line'}
+                                     style={{left: (((100/6) * 5)  - 8.3333).toFixed(4) + '%'}}
+                                />
+                                <div className={'bar-chart-line'}
+                                     style={{left: (((100/6) * 6)  - 8.3333).toFixed(4) + '%'}}
+                                />
+                                <Row>
+                                    <VoteBar
+                                        title={'Ayes'}
+                                        votes={this.ayeVotes}
+                                        voteData={this.ayeVotesData}
+                                        voteTotal={commonsDivision.votes.length}
+                                    />
+                                </Row>
+                                <Row>
+                                    <VoteBar
+                                        title={'Noes'}
+                                        votes={this.noVotes}
+                                        voteData={this.noVotesData}
+                                        voteTotal={commonsDivision.votes.length}
+                                    />
+                                </Row>
+                                <Row>
+                                    <VoteBar
+                                        title={'No Vote'}
+                                        votes={this.didNotVote}
+                                        voteData={this.didNotVoteData}
+                                        voteTotal={commonsDivision.votes.length}
+                                    />
+                                </Row>
+                            </div>
+                            <MpVoteList votes={this.props.commonsDivision.votes}/>
                         </Column>
                     </Row>
                 </Container>
